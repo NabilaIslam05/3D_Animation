@@ -39,3 +39,137 @@
   height: 100%;
   object-fit: cover;
 }
+.banner .content {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%);
+  width: min(1400px, 100vw);
+  height: max-content;
+  padding-bottom: 100px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1;
+}
+.banner .content h1 {
+  font-family: "ICA Rubrik";
+  font-size: 16em;
+  line-height: 1em;
+  color: #25283b;
+  position: relative;
+  animation: glow 1.5s ease-in-out infinite alternate;
+}
+.banner .content h1::after {
+  position: absolute;
+  inset: 0 0 0 0;
+  content: attr(data-content);
+  z-index: 2;
+  -webkit-text-stroke: 2px #d2d2d2;
+  color: transparent;
+}
+.banner .content .author {
+  font-family: Poppins;
+  text-align: right;
+  max-width: 200px;
+}
+.banner .content .author {
+  animation: glow 1.5s ease-in-out infinite alternate;
+}
+.banner .content h2 {
+  font-size: 3em;
+}
+.banner .content .model {
+  background-image: url(images/model.png);
+  width: 100%;
+  height: 75vh;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-size: auto 130%;
+  background-repeat: no-repeat;
+  background-position: top center;
+  z-index: 1;
+}
+@media screen and (max-width: 1023px) {
+  .banner .slider {
+    width: 160px;
+    height: 200px;
+    left: calc(50% - 80px);
+  }
+  .banner .slider .item {
+    transform: rotateY(
+        calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg)
+      )
+      translateZ(300px);
+  }
+  .banner .content h1 {
+    text-align: center;
+    width: 100%;
+    text-shadow: 0 10px 20px #000;
+    font-size: 7em;
+  }
+  .banner .content .author {
+    color: #1411a1;
+    padding: 20px;
+    text-shadow: 0 10px 20px #2c1acf;
+
+    z-index: 2;
+    max-width: unset;
+    width: 100%;
+    text-align: center;
+    padding: 0 30px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .banner .slider {
+    width: 100px;
+    height: 150px;
+    left: calc(50% - 50px);
+  }
+  .banner .slider .item {
+    transform: rotateY(
+        calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg)
+      )
+      translateZ(180px);
+  }
+  .banner .content h1 {
+    font-size: 2em;
+  }
+}
+.banner .content .dragon {
+  /* color: #040116;
+  width: 100%;
+  text-shadow: 0 10px 20px #000;
+  font-size: 2em;
+  text-wrap: 2px; */
+  text-align: center;
+  font-family: "Honk", system-ui;
+  font-optical-sizing: auto;
+  font-weight: 100;
+  font-style: normal;
+  font-variation-settings: "MORF" 14, "SHLN" 100;
+
+  font-size: calc(3vw + 0.5rem);
+  letter-spacing: 0.2ch;
+  filter: drop-shadow(-1px 1px 0px #0616f03a) drop-shadow(-5px 5px 5px #000);
+  transition: ease 250ms font-palette;
+  transform: rotate(-10deg);
+  text-shadow: -1px 0px 0 #3654ff, 1px 0px 0 #01063a;
+  animation: glow 1.5s ease-in-out infinite alternate;
+
+  /* text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff, 0 0 30px #ff00ff,
+    0 0 40px #ff00ff, 0 0 50px #ff00ff, 0 0 60px #ff00ff, 0 0 70px #ff00ff; */
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 15px #cce5ff,
+      0 0 20px #d0f1ff, 0 0 30px #b3d9ff, 0 0 40px #e6f7ff;
+  }
+  to {
+    text-shadow: 0 0 10px #ffffff, 0 0 15px #d9e6ff, 0 0 20px #c2dfff,
+      0 0 30px #b3d1ff, 0 0 40px #b0cfff, 0 0 50px #99ccff;
+  }
+}
